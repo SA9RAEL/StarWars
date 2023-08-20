@@ -11,5 +11,5 @@ data class PeopleResponse(
     @SerializedName("previous")
     val previous: Any,
     @SerializedName("results")
-    val results: List<CharacterResponse>
+    val results: List<Character>
 )

@@ -2,7 +2,8 @@ package com.example.starwarssearch.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class CharacterResponse (
+data class Character (
+    var id: Int,
     @SerializedName("birth_year")
     val birthYear: String,
     @SerializedName("eye_color")

@@ -6,10 +6,11 @@ buildscript {
 
     }
     dependencies {
-        classpath libs.gradle
-        classpath libs.kotlin.gradle.plugin
-
-        classpath libs.androidx.navigation.safe.args.gradle.plugin
+        classpath libs.gradle.v713
+        classpath libs.kotlin.gradle.plugin.v180
+        classpath libs.androidx.navigation.safe.args.gradle.plugin.v260
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
