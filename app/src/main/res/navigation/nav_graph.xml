@@ -21,10 +21,18 @@
         android:id="@+id/charactersDetailsFragment"
         android:name="com.example.starwarssearch.presentation.fragments.CharactersDetailsFragment"
         android:label="fragment_characters_details"
-        tools:layout="@layout/fragment_characters_details" />
+        tools:layout="@layout/fragment_characters_details" >
+        <argument
+            android:name="character"
+            app:argType="com.example.starwarssearch.presentation.models.CharacterPresentation"/>
+    </fragment>
     <fragment
         android:id="@+id/planetsDetailsFragment"
         android:name="com.example.starwarssearch.presentation.fragments.PlanetsDetailsFragment"
         android:label="fragment_planets_details"
-        tools:layout="@layout/fragment_planets_details" />
+        tools:layout="@layout/fragment_planets_details" >
+        <argument
+            android:name="planet"
+            app:argType="com.example.starwarssearch.presentation.models.PlanetPresentation"/>
+    </fragment>
 </navigation>

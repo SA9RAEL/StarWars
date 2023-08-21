@@ -17,5 +17,4 @@ class CharactersViewModel @Inject constructor(
     fun getCharacters(searchString: String): Flow<PagingData<Character>> =
         repository.getCharacters(searchString).cachedIn(viewModelScope)
 
-
 }
