@@ -11,8 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class CharactersViewModel @Inject constructor(
-    private val repository: ItemsRepository,
-    val mapper: CharacterMapper
+    private val repository: ItemsRepository
 ) : ViewModel() {
     fun getCharacters(searchString: String): Flow<PagingData<Character>> =
         repository.getCharacters(searchString).cachedIn(viewModelScope)
