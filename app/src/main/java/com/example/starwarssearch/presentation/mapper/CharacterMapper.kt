@@ -4,7 +4,7 @@ import com.example.starwarssearch.data.models.Character
 import com.example.starwarssearch.presentation.models.CharacterPresentation
 
 object CharacterMapper {
-     suspend fun map(character: Character): CharacterPresentation =
+    fun map(character: Character): CharacterPresentation =
         with(character) {
             CharacterPresentation(
                 id = character.id,
