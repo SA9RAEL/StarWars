@@ -15,8 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class CharactersViewModel @Inject constructor(
-    private val repository: ItemsRepository,
-    val mapper: CharacterMapper
+    private val repository: ItemsRepository
 ) : ViewModel() {
     fun getCharacters(searchString: String): Flow<PagingData<CharacterPresentation>>? {
         var result: Flow<PagingData<CharacterPresentation>>? = null
@@ -31,7 +30,6 @@ class CharactersViewModel @Inject constructor(
         }
         return result
     }
-
 
 
 }

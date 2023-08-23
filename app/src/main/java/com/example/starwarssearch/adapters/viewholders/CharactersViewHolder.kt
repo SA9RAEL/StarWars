@@ -14,7 +14,4 @@ class CharactersViewHolder(view: View) :
         binding.nameTextView.text = character?.name
     }
 
-    class OnClickListener(val clickListener: (character: CharacterPresentation) -> Unit) {
-        fun onClick(character: CharacterPresentation) = clickListener(character)
-    }
 }

@@ -13,7 +13,7 @@ import com.example.starwarssearch.presentation.ItemListPresentation
 import com.example.starwarssearch.presentation.models.CharacterPresentation
 import com.example.starwarssearch.presentation.models.PlanetPresentation
 
-class ItemsAdapter() :
+class ItemsAdapter(private val onClickListener: OnClickListener) :
     PagingDataAdapter<ItemListPresentation, RecyclerView.ViewHolder>(ITEMS_COMPARATOR) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -29,16 +29,26 @@ class ItemsAdapter() :
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is CharactersViewHolder -> holder.bind(getItem(position) as CharacterPresentation)
             is PlanetsViewHolder -> holder.bind(getItem(position) as PlanetPresentation)
             else -> {}
         }
 
+        holder.itemView.setOnClickListener {
+            getItem(position)?.let { item -> onClickListener.onClick(item) }
+        }
+    }
+
+
     override fun getItemViewType(position: Int): Int = when (getItem(position)) {
         is CharacterPresentation -> VIEW_TYPE_CHARACTER
         else -> VIEW_TYPE_PLANET
+    }
+
+    class OnClickListener(val clickListener: (item: ItemListPresentation) -> Unit) {
+        fun onClick(item: ItemListPresentation) = clickListener(item)
     }
 
     companion object {
